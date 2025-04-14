@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagodio - Your Daily Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_white-8qS3RnxDPoD0hYsKlLl2rIqo5GUY4H.svg" alt="Pagodio Logo">
+            </div>
+            <nav>
+                <a href="#features" class="contact-btn">Features</a>
+                <a href="mailto:info@pagodio.com" class="beta-btn">Join Beta</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-section fade-in">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="product-label">
+                            <span class="dot"></span>
+                            <span>Product</span>
+                        </div>
+                        <h1>Pagodio helps you<br>organize your time<br>intuitively</h1>
+                        <p class="hero-description">Pagodio is a spatial day planner that lets you intuitively organize your time by moving and resizing blocks like digital post-it notes, bringing flow and flexibility to your daily routine.</p>
+                        <div class="cta-section">
+                            <a href="mailto:info@pagodio.com" class="cta-btn">Sign up for Beta Testing</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%201784-cqFvtiDJ2DTlTod1MG11e7JPOJEDXr.png" alt="Pagodio App Interface" class="main-image">
+                            <div class="tagline-container">
+                                <p class="tagline">Your daily companion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="features-section slide-in">
+                <div class="features-content">
+                    <div class="app-screenshot">
+                        <img src="IMG_F1F105AFFC0F-1.jpeg" alt="Pagodio App Screenshot" class="detail-image">
+                    </div>
+                    <div class="features-text">
+                        <h2>Organize your time differently</h2>
+                        <ul class="features-list">
+                            <li class="fade-in-item">
+                                <span class="bullet">01</span>
+                                <div>
+                                    <h3>Spatial Planning</h3>
+                                    <p>Move and resize blocks like digital post-it notes</p>
+                                </div>
+                            </li>
+                            <li class="fade-in-item">
+                                <span class="bullet">02</span>
+                                <div>
+                                    <h3>Intuitive Interface</h3>
+                                    <p>Natural and fluid task management that adapts to your workflow</p>
+                                </div>
+                            </li>
+                            <li class="fade-in-item">
+                                <span class="bullet">03</span>
+                                <div>
+                                    <h3>Flexible Scheduling</h3>
+                                    <p>Adapt your day on the go with easy drag-and-drop functionality</p>
+                                </div>
+                            </li>
+                            <li class="fade-in-item">
+                                <span class="bullet">04</span>
+                                <div>
+                                    <h3>Visual Timeline</h3>
+                                    <p>See your day at a glance with a visual representation of your schedule</p>
+                                </div>
+                            </li>
+                            <li class="fade-in-item">
+                                <span class="bullet">05</span>
+                                <div>
+                                    <h3>AI Integration</h3>
+                                    <p>AI is integrated to help organize and optimize your schedule, saving you time</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <p>© 2023 Pagodio. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="mailto:info@pagodio.com">info@pagodio.com</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple reveal animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.slide-in, .fade-in, .fade-in-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
