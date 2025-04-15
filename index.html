@@ -11,9 +11,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="overlay"></div>
         <header>
             <div class="logo">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo_white-8qS3RnxDPoD0hYsKlLl2rIqo5GUY4H.svg" alt="Pagodio Logo">
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <nav>
                 <a href="#features" class="contact-btn">Features</a>
@@ -104,6 +110,9 @@
                 <div class="footer-links">
                     <a href="mailto:info@pagodio.com">info@pagodio.com</a>
                 </div>
+                <div class="footer-cities">
+                    <p>Vienna - Dublin - New York - Amsterdam</p>
+                </div>
             </div>
         </footer>
     </div>
@@ -138,6 +147,31 @@
         // Observe all elements with animation classes
         document.querySelectorAll('.slide-in, .fade-in, .fade-in-item').forEach(el => {
             observer.observe(el);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        const overlay = document.querySelector('.overlay');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        function toggleMenu() {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+        
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
         });
     </script>
 </body>
